@@ -146,9 +146,11 @@ func (cp *ConstantPool) GetUtf8(index CpIndex) string {
     }
     panic(fmt.Sprintf("Constant at index %d is not Utf8", index))
 }
-func (cp *ConstantPool) Add(c Constant) {
+
+func (cp *ConstantPool) Add(c Constant) CpIndex {
     // TODO JH need to constrain the number of items in the constant pool
     cp.Constants = append(cp.Constants, c)
+    return CpIndex(len(cp.Constants))
 }
 func (cp *ConstantPool) Count() uint16 {
     return uint16(len(cp.Constants))
