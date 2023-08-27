@@ -153,13 +153,10 @@ func mustReadConstant(r *io.Reader) Constant {
 }
 
 func readJavaMagic(r *io.Reader) error {
-    var magic [4]byte
+    var magic uint32
     mustRead(r, &magic)
 
-    if magic[0] != 0xCA ||
-        magic[1] != 0xFE ||
-        magic[2] != 0xBA ||
-        magic[3] != 0xBE {
+    if magic != 0xCAFEBABE {
         return fmt.Errorf("Not a java class file")
     }
     return nil
