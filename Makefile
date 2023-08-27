@@ -9,4 +9,4 @@ test:
 	$(GO) test ./...
 
 build:
-	$(GO) build
+	cd cmd; $(GO) build

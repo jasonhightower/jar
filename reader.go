@@ -1,4 +1,4 @@
-package main
+package jcr
 
 import (
     "encoding/binary"
