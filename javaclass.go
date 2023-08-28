@@ -153,7 +153,7 @@ func (cp *ConstantPool) Add(c Constant) CpIndex {
     return CpIndex(len(cp.Constants))
 }
 func (cp *ConstantPool) Count() uint16 {
-    return uint16(len(cp.Constants))
+    return uint16(len(cp.Constants)) + 1
 }
 
 type ConstUtf8 struct {
